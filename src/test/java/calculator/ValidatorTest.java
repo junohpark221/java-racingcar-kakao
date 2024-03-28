@@ -31,7 +31,7 @@ public class ValidatorTest {
     @Test
     void validateCustomDelimiter() {
         String expression = "//?\\n1,2;3?4";
-        expression = delimiter.customExpression(expression);
+        expression = delimiter.customizeExpression(expression);
         validator.validate(expression, delimiter);
     }
 }

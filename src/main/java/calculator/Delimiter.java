@@ -14,8 +14,12 @@ public class Delimiter {
         delimiterSet.add(";");
     }
 
-    public String customExpression(String expression) {
-        return checkCustomDelimiter(expression);
+    public String customizeExpression(String expression) {
+        if(checkCustomDelimiter(expression)) {
+            return expression.substring(5);
+        }
+
+        return expression;
     }
 
     public void add(String delimiter) {
@@ -30,14 +34,14 @@ public class Delimiter {
         return delimiterSet.contains(token);
     }
 
-    private String checkCustomDelimiter(String expression) {
+    private boolean checkCustomDelimiter(String expression) {
         Matcher m = pattern.matcher(expression);
         if (m.find()) {
             String customDelimiter = m.group(1);
             delimiterSet.add(customDelimiter);
-            return expression.substring(5);
+            return true;
         }
 
-        return expression;
+        return false;
     }
 }
