@@ -6,6 +6,7 @@ import java.util.regex.Pattern;
 
 public class Delimiter {
     private final List<String> delimiterSet;
+    private static final Pattern pattern = Pattern.compile("//(.)\\n*");
 
     public Delimiter() {
         delimiterSet = new ArrayList<>();
@@ -30,7 +31,7 @@ public class Delimiter {
     }
 
     private String checkCustomDelimiter(String expression) {
-        Matcher m = Pattern.compile("//(.)\\n*").matcher(expression);
+        Matcher m = pattern.matcher(expression);
         if (m.find()) {
             String customDelimiter = m.group(1);
             delimiterSet.add(customDelimiter);
