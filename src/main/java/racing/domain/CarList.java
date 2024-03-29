@@ -1,13 +1,31 @@
 package racing.domain;
 
+import racing.generator.RandomNumberGenerator;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class CarList {
     private final Map<String, Car> carHashMap;
 
+    public CarList(String carNames) {
+        this.carHashMap = createCarHashMap(createCarList(carNames));
+    }
+
     public CarList(List<Car> carList) {
         this.carHashMap = createCarHashMap(carList);
+    }
+
+    private List<Car> createCarList(String carNames) {
+        String[] carNamesList = carNames.split(",");
+        List<Car> carList = new ArrayList<>();
+        RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
+        for (String carName : carNamesList) {
+            Car car = new Car(carName, randomNumberGenerator);
+            carList.add(car);
+        }
+
+        return carList;
     }
 
     private Map<String, Car> createCarHashMap(List<Car> carList) {
