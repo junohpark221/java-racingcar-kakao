@@ -2,6 +2,7 @@ package calculator;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -16,6 +17,7 @@ public class SplitterTest {
         this.splitter = new Splitter();
     }
 
+    @DisplayName("기본 delimiter를 기반으로 한 split의 정상 작동 테스트")
     @Test
     void split() {
         String expression = "1,2;3";
@@ -28,6 +30,7 @@ public class SplitterTest {
         Assertions.assertThat(numberList.get(2)).isEqualTo(3);
     }
 
+    @DisplayName("커스텀 delimiter를 기반으로 한 split의 정상 작동 테스트")
     @Test
     void customSplit() {
         delimiter.add("?");

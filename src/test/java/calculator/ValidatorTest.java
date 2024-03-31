@@ -1,6 +1,7 @@
 package calculator;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class ValidatorTest {
@@ -13,6 +14,7 @@ public class ValidatorTest {
         this.validator = new Validator();
     }
 
+    @DisplayName("기본 delimiter 과 함께 정상적인 입력 값의 validate 통과 테스트")
     @Test
     void validateSuccess() {
         String expression = "1,2;3";
@@ -20,6 +22,7 @@ public class ValidatorTest {
         validator.validate(expression, delimiter);
     }
 
+    @DisplayName("잘못된 delimiter를 포함하는 입력 값의 validate 통과 실패 테스트")
     @Test
     void validateFailWithInvalidDelimiter() {
         String expression = "1?2;3";
@@ -28,6 +31,7 @@ public class ValidatorTest {
         });
     }
 
+    @DisplayName("커스텀 delimiter를 포함하는 입력 값의 validate 통과 테스트")
     @Test
     void validateCustomDelimiter() {
         String expression = "//?\\n1,2;3?4";
