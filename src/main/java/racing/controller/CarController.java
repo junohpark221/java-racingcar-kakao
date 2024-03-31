@@ -10,25 +10,27 @@ import java.util.List;
 import java.util.Map;
 
 public class CarController {
-    private final CarView carView;
     private List<Map<String, Integer>> gameLogs;
+    private CarList carList;
+    private int turn;
 
-    public CarController() {
-        carView = new CarView();
-        gameLogs = new ArrayList<>();
+    public CarController(String carNames, int turn) {
+        this.gameLogs = new ArrayList<>();
+        this.carList = new CarList(carNames);
+        this.turn = turn;
     }
 
     public void run() {
-        String carNames = carView.getCarNames();
-        CarList carList = new CarList(carNames);
-
-        int turn = carView.getTryCount();
-
         for (int i = 0; i < turn; i++) {
-            gameLogs.add(carList.proceed());
+            gameLogs.add(this.carList.proceed());
         }
+    }
 
-        carView.printGameLogs(gameLogs);
-        carView.printWinner(carList);
+    public List<Map<String, Integer>> getGameLogs() {
+        return this.gameLogs;
+    }
+
+    public CarList getCarList() {
+        return this.carList;
     }
 }
