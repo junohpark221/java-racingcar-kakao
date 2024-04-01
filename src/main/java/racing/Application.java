@@ -1,18 +1,19 @@
 package racing;
 
 import racing.controller.CarController;
-import racing.view.CarView;
+import racing.view.CarOutputView;
+import racing.view.CarInputView;
 
 public class Application {
     public static void main(String[] args) {
-        CarView carView = new CarView();
+        CarInputView carView = new CarInputView();
         String carNames = carView.getCarNames();
         int turn = carView.getTryCount();
 
         CarController carController = new CarController(carNames, turn);
         carController.run();
 
-        carView.printGameLogs(carController.getGameLogs());
-        carView.printWinner(carController.getCarList());
+        CarOutputView.printGameLogs(carController.getGameLogs());
+        CarOutputView.printWinner(carController.getCarList());
     }
 }
