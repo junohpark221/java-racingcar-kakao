@@ -5,8 +5,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Delimiter {
-    private final List<String> delimiterSet;
     private static final Pattern pattern = Pattern.compile("//(.)\\n*");
+    private final List<String> delimiterSet;
 
     public Delimiter() {
         delimiterSet = new ArrayList<>();
