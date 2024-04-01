@@ -33,8 +33,7 @@ public class CarOutputView {
         System.out.println(status);
     }
 
-    public static void printWinner(Cars carList) {
-        List<Car> winners = carList.getWinner();
+    public static void printWinner(List<Car> winners) {
         List<String> winnerNameList = new ArrayList<>();
         for (Car winner : winners) {
             winnerNameList.add(winner.getCarName());
