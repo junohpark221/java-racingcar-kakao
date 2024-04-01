@@ -9,7 +9,7 @@ public class Cars {
     private final Map<String, Car> cars;
 
     public Cars(String carNames) {
-        this.cars = createCarHashMap(createCarList(carNames));
+        this(createCarList(carNames));
     }
 
     public Cars(List<Car> carList) {
