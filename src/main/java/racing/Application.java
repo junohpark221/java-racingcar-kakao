@@ -13,7 +13,7 @@ public class Application {
         CarController carController = new CarController(carNames, turn);
         carController.run();
 
-        CarOutputView.printGameLogs(carController.getGameLogs());
+        CarOutputView.printGameLogs(carController.getGameLogsData());
         CarOutputView.printWinner(carController.getCars().getWinner());
     }
 }
