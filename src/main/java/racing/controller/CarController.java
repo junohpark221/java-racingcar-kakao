@@ -8,18 +8,18 @@ import java.util.Map;
 
 public class CarController {
     private List<Map<String, Integer>> gameLogs;
-    private Cars carList;
+    private Cars cars;
     private int turn;
 
     public CarController(String carNames, int turn) {
         this.gameLogs = new ArrayList<>();
-        this.carList = new Cars(carNames);
+        this.cars = new Cars(carNames);
         this.turn = turn;
     }
 
     public void run() {
         for (int i = 0; i < turn; i++) {
-            gameLogs.add(this.carList.proceed());
+            gameLogs.add(this.cars.proceed());
         }
     }
 
@@ -27,7 +27,7 @@ public class CarController {
         return this.gameLogs;
     }
 
-    public Cars getCarList() {
-        return this.carList;
+    public Cars getCars() {
+        return this.cars;
     }
 }

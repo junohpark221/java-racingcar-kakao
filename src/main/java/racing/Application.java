@@ -14,6 +14,6 @@ public class Application {
         carController.run();
 
         CarOutputView.printGameLogs(carController.getGameLogs());
-        CarOutputView.printWinner(carController.getCarList());
+        CarOutputView.printWinner(carController.getCars());
     }
 }
