@@ -5,18 +5,18 @@ import racing.generator.RandomNumberGenerator;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class CarList {
-    private final Map<String, Car> carHashMap;
+public class Cars {
+    private final Map<String, Car> cars;
 
-    public CarList(String carNames) {
-        this.carHashMap = createCarHashMap(createCarList(carNames));
+    public Cars(String carNames) {
+        this.cars = createCarHashMap(createCarList(carNames));
     }
 
-    public CarList(List<Car> carList) {
-        this.carHashMap = createCarHashMap(carList);
+    public Cars(List<Car> carList) {
+        this.cars = createCarHashMap(carList);
     }
 
-    private List<Car> createCarList(String carNames) {
+    private static List<Car> createCarList(String carNames) {
         String[] carNamesList = carNames.split(",");
         List<Car> carList = new ArrayList<>();
         RandomNumberGenerator randomNumberGenerator = new RandomNumberGenerator();
@@ -45,11 +45,11 @@ public class CarList {
     }
 
     public Car findByName(String name) {
-        return this.carHashMap.get(name);
+        return this.cars.get(name);
     }
 
     public List<Car> getCarList() {
-        return new ArrayList<>(this.carHashMap.values());
+        return new ArrayList<>(this.cars.values());
     }
 
     private int getMaxPosition(List<Car> cars) {

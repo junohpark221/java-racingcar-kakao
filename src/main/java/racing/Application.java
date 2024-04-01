@@ -1,7 +1,6 @@
 package racing;
 
 import racing.controller.CarController;
-import racing.domain.CarList;
 import racing.view.CarView;
 
 public class Application {
